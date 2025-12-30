@@ -1,6 +1,7 @@
 // app/(protected)/layout.tsx
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import Navbar from "@/components/navbar";
 
 export default async function ProtectedLayout({
   children,
@@ -16,8 +17,9 @@ export default async function ProtectedLayout({
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div>
       {/* Navbar */}
+      <Navbar />
       
       {/* Main Content */}
       <main className="">
