@@ -54,9 +54,9 @@
 :root {
   --primary-light: #c7f9cc;
   --primary-dark: #80ed99;
-  --secondary-light: #38a3a5;
+  --secondary-light: #5e9af5;
   --secondary-dark: #22577a;
-  --app-accent: #57cc99;
+  --app-accent: #7eff89;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -129,7 +129,40 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes horizontal-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: horizontal-scroll 30s linear infinite;
+}
+
+/* Pause on interaction (WCAG 2.2.2) */
+.carousel-container:hover .carousel-track,
+.carousel-container:focus-within .carousel-track {
+  animation-play-state: paused;
+}
+
+/* Reduced motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
   }
 }
