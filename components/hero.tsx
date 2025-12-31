@@ -2,15 +2,13 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { MountainSnow } from "lucide-react";
-import TopDestination from "./topdestination";
 
 export default function Hero() {
     return (
         <>
             <section
                 role="region"
-                aria-labelledby="hero-heading"
-                aria-describedby="hero-description"
+                aria-label="Hero section with travel inspiration"
                 className="relative min-h-screen w-full overflow-hidden"
             >
                 {/* Background Image */}
@@ -29,8 +27,8 @@ export default function Hero() {
                 {/* Content */}
                 <div className="relative z-10 flex min-h-screen items-center px-6 py-24">
                     <div className="mx-auto max-w-3xl text-center">
-                        <h1 id="hero-heading" className="text-white text-4xl font-bold leading-tight md:text-6xl">
-                            Dream Big. Travel Far
+                        <h1 tabIndex={0} className="text-white text-4xl font-bold leading-tight md:text-6xl">
+                            Dream Big - Travel Far
                         </h1>
 
                         <h2 tabIndex={0} className="mt-4 text-xl text-white md:text-2xl">
@@ -65,10 +63,6 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-            </section>
-            <section aria-labelledby="destinations-heading"
-                className="bg-white px-6 py-20">
-                <TopDestination />
             </section>
         </>
     );

@@ -36,7 +36,7 @@ const Navbar = () => {
 
         <Link
           href="/"
-          aria-label="Go to home page"
+          aria-label="Logo of TRVL App, navigate to home page"
           className="focus:outline-none focus:ring-2 focus:ring-white rounded"
         >
           <Image src="/trvl-logo.svg" alt="TRVL App logo" width={80} height={80} />
