@@ -175,7 +175,7 @@
 }
 
 /* Screen reader only utility (WCAG 2.4.1) */
-.sr-only {
+/* .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -197,4 +197,4 @@
   overflow: visible;
   clip: auto;
   white-space: normal;
-}
+} */
