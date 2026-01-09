@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import Navbar from "@/components/navbar";
+import FooterSection from "@/components/Footer";
 
 export default async function ProtectedLayout({
   children,
@@ -17,14 +18,18 @@ export default async function ProtectedLayout({
   }
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       {/* Navbar */}
-      <Navbar />
+      <div className="fixed top-0 left-0 z-50 w-full">
+        <Navbar />
+      </div>
       
       {/* Main Content */}
       <main className="">
         {children}
       </main>
+
+        <FooterSection />
     </div>
   );
 }
