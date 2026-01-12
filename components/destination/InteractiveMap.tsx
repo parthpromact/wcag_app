@@ -275,9 +275,9 @@ const InteractiveMap = () => {
     <div className={`bg-card rounded-xl shadow-lg p-6 ${isMobile ? '' : 'mx-16'}`} >
       {/* WCAG 2.4.6 (AA): Headings and Labels - Clear section heading */}
       <div className="mb-6">
-        <h2 className="text-3xl font-headline font-bold text-title mb-2" tabIndex={0}>
+        <h1 className="text-3xl font-headline font-bold text-title mb-2" tabIndex={0}>
           Explore Accessible Destinations Worldwide
-        </h2>
+        </h1>
         <p className="text-sm text-muted-foreground" >
           Click destinations on the map or use the list below. Navigate with
           keyboard arrows.
@@ -391,9 +391,9 @@ const InteractiveMap = () => {
 
       {/* WCAG 2.4.5 (AA): Multiple Ways - List view as alternative to map */}
       <div className="mt-6">
-        <h3 className="text-lg font-headline font-bold text-title mb-4">
+        <h2 className="text-lg font-headline font-bold text-title mb-4">
           Destination List
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {destinations.map((dest) => (
             <button

@@ -18,7 +18,7 @@ export default function AccessibleDestinationPage() {
       <section
         className="mb-12 border-t border-muted pt-16"
         role="region"
-        aria-labelledby="map-heading"
+        id="main-content"
       >
         <InteractiveMap />
       </section>

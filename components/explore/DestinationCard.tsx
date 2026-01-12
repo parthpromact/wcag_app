@@ -111,12 +111,12 @@ const DestinationCard = ({ destination }: DestinationCardProps) => {
             <div className="flex-1">
               {/* WCAG 2.4.6 (AA): Headings and Labels - Clear heading identifies destination */}
               {/* WCAG 1.3.1 (A): Info and Relationships - Proper heading hierarchy */}
-              <h3
+              <h2
                 id={`destination-${destination.id}-title`}
                 className="text-lg font-headline font-bold text-foreground group-hover:text-primary transition-colors duration-200"
               >
                 {destination.name}
-              </h3>
+              </h2>
               {/* WCAG 1.1.1 (A): Non-text Content - Icon provides context with text */}
               <div className="flex items-center space-x-1 mt-1">
                 <Icon

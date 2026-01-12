@@ -435,12 +435,12 @@ const ExperienceDetailModal = ({
           <div className="flex items-center justify-between pt-6 border-t border-border">
             <div>
               <p className="text-sm text-muted-background">From</p>
-              <p
+              <h4
                 className="text-3xl font-bold text-primary"
                 aria-label={`Price: $${experience.price} per person`}
               >
                 ${experience.price}
-              </p>
+              </h4>
               <p className="text-sm text-muted-background">per person</p>
             </div>
             {/* WCAG 2.4.4 (A): Link Purpose - Clear button text */}
