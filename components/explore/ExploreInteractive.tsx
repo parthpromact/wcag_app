@@ -157,7 +157,7 @@ const ExploreInteractive = () => {
 
         <div
           id="main-content"
-          className="flex-1 flex flex-col min-h-screen border-l border-r border-border"
+          className="flex-1 flex flex-col min-h-screen border-l border-r border-border w-3/4"
         >
           <SearchBar
             onSearch={handleSearch}
@@ -274,7 +274,7 @@ const ExploreInteractive = () => {
                 // WCAG 3.3.1 (A): Error Identification - Clear message for no results
                 // WCAG 3.3.3 (AA): Error Suggestion - Guidance on how to find results
                 <div
-                  className="text-center py-16"
+                  className="text-center py-16 w-full"
                   role="status"
                   aria-live="polite"
                 >
@@ -284,7 +284,7 @@ const ExploreInteractive = () => {
                     className="mx-auto text-muted-foreground mb-4"
                     aria-hidden="true"
                   />
-                  <h2 className="text-lg font-headline font-bold text-foreground mb-2">
+                  <h2 className="text-lg font-headline font-bold text-foreground mb-2 w-full">
                     No destinations found
                   </h2>
                   <p className="text-sm font-body text-muted-foreground">

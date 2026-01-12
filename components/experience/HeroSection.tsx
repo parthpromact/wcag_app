@@ -53,6 +53,7 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHydrated, setIsHydrated] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(100);
   // WCAG 2.2.1 (A): Timing Adjustable - Store user's timing preference
   const [autoPlayDuration, setAutoPlayDuration] = useState(5000);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -73,6 +74,18 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, [isPlaying, isHydrated, autoPlayDuration]);
+
+  // WCAG 1.4.4 (AA): Resize Text - Adjust zoom level based on user settings
+  useEffect(() => {
+  const updateZoomLevel = () => {
+    const zoom = Math.round((window.outerWidth / window.innerWidth) * 100);
+    setZoomLevel(zoom);
+  };
+
+  updateZoomLevel();
+  window.addEventListener('resize', updateZoomLevel);
+  return () => window.removeEventListener('resize', updateZoomLevel);
+}, []);
 
   const handlePrevious = () => {
     setCurrentSlide(
@@ -184,7 +197,8 @@ export default function HeroSection() {
       </div>
 
       {/* WCAG 2.2.1 (A): Timing Adjustable - Controls to adjust carousel speed */}
-      <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm rounded-lg p-3">
+      <div className={`absolute ${zoomLevel >= 175 ? 'top-1 right-1' : 'top-4 right-4'} z-20 bg-black/50 backdrop-blur-sm rounded-lg p-3`}
+  >
         <div className="text-white text-sm mb-2">Carousel Speed</div>
         <div className="flex gap-2">
           <button
@@ -234,18 +248,18 @@ export default function HeroSection() {
           {/* WCAG 2.4.6 (AA): Headings and Labels - Clear heading structure */}
           {/* WCAG 1.3.1 (A): Info and Relationships - Proper heading hierarchy */}
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-headline font-bold text-white mb-4 drop-shadow-lg"
+            className={`lg:text-6xl font-headline font-bold text-white ${zoomLevel >= 175 ? 'mb-2 text-2xl' : 'mb-4 text-4xl' } drop-shadow-lg`}
             id="carousel-heading"
             tabIndex={0}
           >
             {currentDestination.name}, {currentDestination.country}
           </h2>
           {/* WCAG 1.4.3 (AA): Contrast - White text with shadow on dark background */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-6 font-body drop-shadow-md max-w-2xl mx-auto" tabIndex={0}>
+          <p className={`lg:text-2xl text-white/90 ${zoomLevel >= 175 ? 'mb-2 text-sm' : 'mb-6 text-lg' } font-body drop-shadow-md max-w-2xl mx-auto`} tabIndex={0}>
             {currentDestination.description}
           </p>
           {/* WCAG 1.3.3 (A): Sensory Characteristics - Icon accompanies text, not standalone */}
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className={`flex items-center justify-center gap-2 ${zoomLevel >= 175 ? 'mb-3' : 'mb-8' }`}>
             <Icon
               name="circle-check"
               size={20}
@@ -253,7 +267,7 @@ export default function HeroSection() {
               variant="solid"
               aria-hidden="true"
             />
-            <p className="text-white/80 text-sm sm:text-base font-body" tabIndex={0}>
+            <p className={`text-white/80 ${zoomLevel >= 175 ? 'text-xs' : 'text-lg' } font-body`} tabIndex={0}>
               {currentDestination.accessibility}
             </p>
           </div>
@@ -284,7 +298,7 @@ export default function HeroSection() {
       {/* WCAG 2.5.1 (A): Pointer Gestures - Single-pointer click actions */}
       {/* WCAG 2.5.2 (A): Pointer Cancellation - onClick (up-event), not onMouseDown */}
       <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-10"
+        className={`absolute ${zoomLevel >= 150 ? 'bottom-1' : 'bottom-8' } left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-10`}
         role="group"
         aria-label="Carousel controls"
       >
@@ -355,7 +369,7 @@ export default function HeroSection() {
       {/* WCAG 4.1.2 (A): Name, Role, Value - aria-current indicates active slide */}
       {/* WCAG 2.5.2 (A): Pointer Cancellation - Click handlers on up-event */}
       <div
-        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-10"
+        className={`absolute ${zoomLevel >= 150 ? 'bottom-14' : 'bottom-24' } left-1/2 transform -translate-x-1/2 flex gap-2 z-10`}
         role="group"
         aria-label="Carousel pagination"
       >

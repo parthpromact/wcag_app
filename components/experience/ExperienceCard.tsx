@@ -194,12 +194,12 @@ const ExperienceCard = ({
           <div>
             <p className="text-xs text-muted-background">From</p>
             {/* WCAG 1.4.3 (AA): Contrast - Price text meets contrast ratio */}
-            <p
+            <h4
               className="text-2xl font-bold text-primary"
               aria-label={`Price: $${price} per person`}
             >
               ${price}
-            </p>
+            </h4>
             <p className="text-xs text-muted-background">per person</p>
           </div>
           {/* WCAG 2.4.4 (A): Link Purpose - Clear button text describes action */}
