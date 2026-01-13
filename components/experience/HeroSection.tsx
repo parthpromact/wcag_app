@@ -202,44 +202,45 @@ export default function HeroSection() {
         <div className="text-white text-sm mb-2">Carousel Speed</div>
         <div className="flex gap-2">
           <button
-            onClick={() => setAutoPlayDuration(3000)}
+            onClick={() => setAutoPlayDuration(2000)}
             className={`px-3 py-1 text-xs rounded ${
-              autoPlayDuration === 3000
+              autoPlayDuration === 2000
                 ? "bg-accent text-accent-foreground"
                 : "bg-white/20 text-white"
             } focus:outline-none focus:ring-2 focus:ring-white`}
-            aria-label="Set carousel speed to fast (3 seconds)"
-            aria-pressed={autoPlayDuration === 3000}
+            aria-label="Set carousel speed to fast (2 seconds)"
+            aria-pressed={autoPlayDuration === 2000}
           >
             Fast
           </button>
           <button
-            onClick={() => setAutoPlayDuration(5000)}
+            onClick={() => setAutoPlayDuration(10000)}
             className={`px-3 py-1 text-xs rounded ${
-              autoPlayDuration === 5000
+              autoPlayDuration === 10000
                 ? "bg-accent text-accent-foreground"
                 : "bg-white/20 text-white"
             } focus:outline-none focus:ring-2 focus:ring-white`}
-            aria-label="Set carousel speed to normal (5 seconds)"
-            aria-pressed={autoPlayDuration === 5000}
+            aria-label="Set carousel speed to normal (10 seconds)"
+            aria-pressed={autoPlayDuration === 10000}
           >
             Normal
           </button>
           <button
-            onClick={() => setAutoPlayDuration(8000)}
+            onClick={() => setAutoPlayDuration(20000)}
             className={`px-3 py-1 text-xs rounded ${
               autoPlayDuration === 8000
                 ? "bg-accent text-accent-foreground"
                 : "bg-white/20 text-white"
             } focus:outline-none focus:ring-2 focus:ring-white`}
-            aria-label="Set carousel speed to slow (8 seconds)"
-            aria-pressed={autoPlayDuration === 8000}
+            aria-label="Set carousel speed to slow (20 seconds)"
+            aria-pressed={autoPlayDuration === 20000}
           >
             Slow
           </button>
         </div>
         <div className="text-white text-xs mt-2 opacity-75">
-          Keyboard: ← → arrows, Space to pause
+          Keyboard: ← → arrows, Space to pause,<br />
+          Click 'Slow' to extend 10x duration
         </div>
       </div>
 
